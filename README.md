@@ -5,10 +5,10 @@ Based on: [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform
 
 Terraform module which creates VPC resources on AWS, but made EASIER.  The advantages this has is...
 
-1. Automatic Subnetting + CIDR Calculation + Standardized Subnetting
-1. Automatic Availability Zone Selection, based on the number of AZs you choose and the AZs available in the region
-1. Removal of resource-specific tag naming, in favor of standardizing resource tagging
-1. Removal of nearly-unused Database/Elasticache/Redshift network resources
+* **Automatic Subnetting + CIDR Calculation + Standardized Subnetting**
+* **Automatic Availability Zone Selection, based on the number of AZs you choose and the AZs available in the region**
+* **Removal of resource-specific tag naming, in favor of standardizing resource tagging**
+* **Removal of nearly-unused Database/Elasticache/Redshift network resources**
 
 All other resources and automation from the parent module are still supported in here, making this a familiar and simple adoption.
 
@@ -44,7 +44,7 @@ Authors
 -------
 
 Forked from [github.com/terraform-aws-modules/terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc)
-<br/>Module managed by [Farley](https://github.com/andrewfarley).
+<br/>Module managed by [Farley](https://github.com/andrewfarley) and [OlinData](https://olindata.com/)
 
 License
 -------
