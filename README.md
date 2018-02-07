@@ -1,16 +1,9 @@
 AWS ezVPC Terraform module - 
 ========================
 
-Based on: [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc)
+Based on: [terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc) @ [1.18.0](https://github.com/terraform-aws-modules/terraform-aws-vpc/releases/tag/v1.18.0)
 
-Terraform module which creates VPC resources on AWS, but made EASIER.  The advantages this has is...
-
-* **Automatic Subnetting + CIDR Calculation + Standardized Subnetting**
-* **Automatic Availability Zone Selection, based on the number of AZs you choose and the AZs available in the region**
-* **Removal of resource-specific tag naming, in favor of standardizing resource tagging**
-* **Removal of nearly-unused Database/Elasticache/Redshift network resources**
-
-All other resources and automation from the parent module are still supported in here, making this a familiar and simple adoption.
+Terraform module for dummies which creates a VPC on AWS automatically, no effort required.
 
 Usage
 -----
@@ -36,7 +29,12 @@ module "vpc" {
 }
 ```
 
-Feel free to compare this to [our parent's usage example](https://github.com/terraform-aws-modules/terraform-aws-vpc#usage)
+This module has everything our parent has making this a familiar and simple adoption.  Plus it has...
+
+* **Automatic Subnetting + CIDR Calculation + Standardized Subnetting**
+* **Automatic Availability Zone Selection, based on the number of AZs you choose and the AZs available in the region**
+* **Removal of resource-specific tag naming, in favor of standardizing resource tagging**
+* **Removal of nearly-unused Database/Elasticache/Redshift network resources**
 
 Please see the [parent module](https://github.com/terraform-aws-modules/terraform-aws-vpc) for further documentation.  All inputs/outputs and elements of the parent module are relevant and applicable to this module except for variables relating to the database, elasticache, and redshift.  All have been removed.
 
@@ -44,7 +42,7 @@ Authors
 -------
 
 Forked from [github.com/terraform-aws-modules/terraform-aws-vpc](https://github.com/terraform-aws-modules/terraform-aws-vpc)
-<br/>Module managed by [Farley](https://github.com/andrewfarley) and [OlinData](https://olindata.com/)
+<br/>Module created and managed by [Farley](https://github.com/andrewfarley) and [OlinData](https://olindata.com/)
 
 License
 -------
