@@ -13,42 +13,18 @@ variable "instance_tenancy" {
   default     = "default"
 }
 
-variable "public_subnets" {
-  description = "A list of public subnets inside the VPC"
-  default     = []
+variable "number_of_azs" {
+  description = "The number of AZs to span, this should be 2, 3 or 4"
+  default     = 2
 }
 
-variable "private_subnets" {
-  description = "A list of private subnets inside the VPC"
-  default     = []
-}
-
-variable "database_subnets" {
-  type        = "list"
-  description = "A list of database subnets"
-  default     = []
-}
-
-variable "redshift_subnets" {
-  type        = "list"
-  description = "A list of redshift subnets"
-  default     = []
-}
-
-variable "elasticache_subnets" {
-  type        = "list"
-  description = "A list of elasticache subnets"
-  default     = []
-}
-
-variable "create_database_subnet_group" {
-  description = "Controls if database subnet group should be created"
-  default     = true
-}
-
-variable "azs" {
-  description = "A list of availability zones in the region"
-  default     = []
+variable "cidr_addition_map" {
+    description = "lookup map for cidr additions for automatic subnetting"
+    default     = {
+        "2" = "2"
+        "3" = "3"
+        "4" = "3"
+    }
 }
 
 variable "enable_dns_hostnames" {
@@ -114,51 +90,6 @@ variable "public_propagating_vgws" {
 
 variable "tags" {
   description = "A map of tags to add to all resources"
-  default     = {}
-}
-
-variable "vpc_tags" {
-  description = "Additional tags for the VPC"
-  default     = {}
-}
-
-variable "public_subnet_tags" {
-  description = "Additional tags for the public subnets"
-  default     = {}
-}
-
-variable "private_subnet_tags" {
-  description = "Additional tags for the private subnets"
-  default     = {}
-}
-
-variable "public_route_table_tags" {
-  description = "Additional tags for the public route tables"
-  default     = {}
-}
-
-variable "private_route_table_tags" {
-  description = "Additional tags for the private route tables"
-  default     = {}
-}
-
-variable "database_subnet_tags" {
-  description = "Additional tags for the database subnets"
-  default     = {}
-}
-
-variable "redshift_subnet_tags" {
-  description = "Additional tags for the redshift subnets"
-  default     = {}
-}
-
-variable "elasticache_subnet_tags" {
-  description = "Additional tags for the elasticache subnets"
-  default     = {}
-}
-
-variable "dhcp_options_tags" {
-  description = "Additional tags for the DHCP option set"
   default     = {}
 }
 
