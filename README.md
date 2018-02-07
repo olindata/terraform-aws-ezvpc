@@ -38,7 +38,7 @@ module "vpc" {
 
 Feel free to compare this to [our parent's usage example](https://github.com/terraform-aws-modules/terraform-aws-vpc#usage)
 
-Please see the [parent module](https://github.com/terraform-aws-modules/terraform-aws-vpc) for further documentation
+Please see the [parent module](https://github.com/terraform-aws-modules/terraform-aws-vpc) for further documentation.  All inputs/outputs and elements of the parent module are relevant and applicable to this module except for variables relating to the database, elasticache, and redshift.  All have been removed.
 
 Authors
 -------
