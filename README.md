@@ -26,7 +26,7 @@ module "vpc" {
 
   name               = "my-vpc"
   cidr               = "10.0.0.0/16"
-  number_of_azs      = "2"
+  number_of_azs      = "2"  # Change this to 3 or 4 and watch it work!
   enable_nat_gateway = true
 
   tags = {
