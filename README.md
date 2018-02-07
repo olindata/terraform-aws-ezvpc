@@ -22,7 +22,7 @@ provider "aws" {
 }
 
 module "vpc" {
-  source = "github.com/olindata/terraform-aws-vpc.git?ref=master"
+  source = "olindata/vpc/aws"   # Use: github.com/olindata/terraform-aws-vpc.git for github
 
   name               = "my-vpc"
   cidr               = "10.0.0.0/16"
