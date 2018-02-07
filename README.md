@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 module "vpc" {
-  source = "olindata/vpc/aws"   # Use: github.com/olindata/terraform-aws-vpc.git for github
+  source = "olindata/ezvpc/aws"   # Use: github.com/olindata/terraform-aws-ezvpc.git for github
 
   name               = "my-vpc"
   cidr               = "10.0.0.0/16"
