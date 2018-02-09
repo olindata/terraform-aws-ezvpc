@@ -7,7 +7,7 @@ data "aws_availability_zones" "azs" {}
 
 # These are new local variables we are extracting from the user's variable inputs
 locals {
-  azs         = "${slice(data.aws_availability_zones.azs.names, 0, var.number_of_azs - 1)}"  # This is pulled from the AZs data source
+  azs         = "${slice(data.aws_availability_zones.azs.names, 0, var.number_of_azs)}"  # This is pulled from the AZs data source
   subnet_mask = "${element(split("/",var.number_of_azs), 1)}"                                # This gets the subnet mask number off the end of a CIDR block
 }
     

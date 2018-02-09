@@ -103,3 +103,10 @@ output "vpc_endpoint_dynamodb_pl_id" {
   description = "The prefix list for the DynamoDB VPC endpoint."
   value       = "${element(concat(aws_vpc_endpoint.dynamodb.*.prefix_list_id, list("")), 0)}"
 }
+
+output "availability_zones" {
+  description = "The availability zones that this vpc lives in"
+  value = "${local.azs}"
+}
+
+
