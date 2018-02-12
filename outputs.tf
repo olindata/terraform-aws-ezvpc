@@ -109,4 +109,8 @@ output "availability_zones" {
   value = "${local.azs}"
 }
 
-
+# The AWS account id used as an output so we can use it as an input (for arns?) elsewhere
+output "aws_account_id" {
+    description = "The aws account id we're using"
+    value       = "${data.aws_caller_identity.current.account_id}"
+}
