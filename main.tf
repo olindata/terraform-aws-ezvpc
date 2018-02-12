@@ -10,7 +10,6 @@ data "aws_caller_identity" "current" {}
 # These are new local variables we are extracting from the user's variable inputs
 locals {
   azs         = "${slice(data.aws_availability_zones.azs.names, 0, var.number_of_azs)}"  # This is pulled from the AZs data source
-  subnet_mask = "${element(split("/",var.number_of_azs), 1)}"                                # This gets the subnet mask number off the end of a CIDR block
 }
     
 ######
@@ -104,7 +103,7 @@ resource "aws_subnet" "public" {
   count = "${var.number_of_azs}"
 
   vpc_id                  = "${aws_vpc.this.id}"
-  cidr_block              = "${cidrsubnet(var.cidr, local.subnet_mask + lookup(var.cidr_addition_map, var.number_of_azs), count.index + var.number_of_azs)}"
+  cidr_block              = "${cidrsubnet(var.cidr, lookup(var.cidr_addition_map, var.number_of_azs), count.index + var.number_of_azs)}"
   availability_zone       = "${element(local.azs, count.index)}"
   map_public_ip_on_launch = "${var.map_public_ip_on_launch}"
 
@@ -118,7 +117,7 @@ resource "aws_subnet" "private" {
   count = "${var.number_of_azs}"
 
   vpc_id            = "${aws_vpc.this.id}"
-  cidr_block        = "${cidrsubnet(var.cidr, local.subnet_mask + lookup(var.cidr_addition_map, var.number_of_azs), count.index)}"
+  cidr_block        = "${cidrsubnet(var.cidr, lookup(var.cidr_addition_map, var.number_of_azs), count.index)}"
   availability_zone = "${element(local.azs, count.index)}"
 
   tags = "${merge(var.tags, map("Name", format("%s-private-%s", var.name, element(local.azs, count.index))))}"
