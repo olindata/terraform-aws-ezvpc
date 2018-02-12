@@ -4,6 +4,8 @@ terraform {
 
 # This is our input (instead of asking the user) to get the AZ's available in this region
 data "aws_availability_zones" "azs" {}
+# This gets our AWS Account ID
+data "aws_caller_identity" "current" {}
 
 # These are new local variables we are extracting from the user's variable inputs
 locals {
