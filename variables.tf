@@ -19,12 +19,13 @@ variable "number_of_azs" {
 }
 
 variable "cidr_addition_map" {
-    description = "lookup map for cidr additions for automatic subnetting"
-    default     = {
-        "2" = "2"
-        "3" = "3"
-        "4" = "3"
-    }
+  description = "lookup map for cidr additions for automatic subnetting"
+
+  default = {
+    "2" = "2"
+    "3" = "3"
+    "4" = "3"
+  }
 }
 
 variable "enable_dns_hostnames" {
@@ -91,6 +92,13 @@ variable "public_propagating_vgws" {
 variable "tags" {
   description = "A map of tags to add to all resources"
   default     = {}
+}
+
+variable "public_subnet_tags" {
+  description = "For when you just abso-lutely _have_ to add tags specifically to the public subnets. I'm sorry"
+  type        = "map"
+
+  default = {}
 }
 
 variable "enable_dhcp_options" {

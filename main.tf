@@ -4,14 +4,15 @@ terraform {
 
 # This is our input (instead of asking the user) to get the AZ's available in this region
 data "aws_availability_zones" "azs" {}
+
 # This gets our AWS Account ID
 data "aws_caller_identity" "current" {}
 
 # These are new local variables we are extracting from the user's variable inputs
 locals {
-  azs         = "${slice(data.aws_availability_zones.azs.names, 0, var.number_of_azs)}"  # This is pulled from the AZs data source
+  azs = "${slice(data.aws_availability_zones.azs.names, 0, var.number_of_azs)}" # This is pulled from the AZs data source
 }
-    
+
 ######
 # VPC
 ######
@@ -53,7 +54,7 @@ resource "aws_vpc_dhcp_options_association" "this" {
 # Internet Gateway
 ###################
 resource "aws_internet_gateway" "this" {
-  count                  = 1
+  count  = 1
   vpc_id = "${aws_vpc.this.id}"
 
   tags = "${merge(var.tags, map("Name", format("%s", var.name)))}"
@@ -107,7 +108,7 @@ resource "aws_subnet" "public" {
   availability_zone       = "${element(local.azs, count.index)}"
   map_public_ip_on_launch = "${var.map_public_ip_on_launch}"
 
-  tags = "${merge(var.tags, map("Name", format("%s-public-%s", var.name, element(local.azs, count.index))))}"
+  tags = "${merge(var.tags, map("Name", format("%s-public-%s", var.name, element(local.azs, count.index))), var.public_subnet_tags)}"
 }
 
 #################
