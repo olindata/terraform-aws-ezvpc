@@ -101,6 +101,13 @@ variable "public_subnet_tags" {
   default = {}
 }
 
+variable "private_subnet_tags" {
+  description = "For when you just abso-lutely _have_ to add tags specifically to the private subnets. I'm sorry"
+  type        = "map"
+
+  default = {}
+}
+
 variable "enable_dhcp_options" {
   description = "Should be true if you want to specify a DHCP options set with a custom domain name, DNS servers, NTP servers, netbios servers, and/or netbios server type"
   default     = false
